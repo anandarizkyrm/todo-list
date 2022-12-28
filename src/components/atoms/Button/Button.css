@@ -1,0 +1,13 @@
+@import '../../../constant.css';
+.button {
+  border-radius: 45px;
+  border: 0;
+  padding: 13.5px 29px;
+  color: var(--bs-gray-100);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button:hover{
+  cursor: pointer;
+}
