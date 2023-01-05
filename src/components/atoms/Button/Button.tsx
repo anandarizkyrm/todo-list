@@ -6,14 +6,20 @@ type BtnProps = {
   icon?: React.ReactNode;
   text: string;
   color: string;
+  type?: 'submit' | 'reset';
   // eslint-disable-next-line @typescript-eslint/ban-types
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const Button = (props: BtnProps) => {
-  const { icon, text, color, handleClick } = props;
+  const { icon, text, color, handleClick, type } = props;
   return (
-    <button onClick={handleClick} style={{ background: color }} className="button">
+    <button
+      type={type}
+      onClick={handleClick}
+      style={{ background: color }}
+      className="button"
+    >
       {icon} {text}
     </button>
   );

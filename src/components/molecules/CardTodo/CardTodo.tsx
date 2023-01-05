@@ -1,10 +1,11 @@
+import { Link, Router, useLocation, useNavigate } from 'react-router-dom';
 import './CardTodo.css';
 
 type Props = {
   title: string;
   date: string;
   id: number;
-  setDeleteId: React.Dispatch<React.SetStateAction<number>> | undefined;
+  setDeleteId: React.Dispatch<React.SetStateAction<number>>;
   setOpenModalDelete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -15,9 +16,9 @@ const CardTodo = (props: Props) => {
     setOpenModalDelete(true);
     setDeleteId(id);
   };
-
+  let navigate = useNavigate();
   return (
-    <div className="card-todo">
+    <div onClick={() => navigate(`/detail/${id}`)} className="card-todo">
       <h3>{title}</h3>
       <div className="card-bottom">
         <h3 className="card-todo-date">{date?.slice(0, 10)}</h3>
