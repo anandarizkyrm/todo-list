@@ -1,19 +1,19 @@
 import './ActivityListContainer.css';
 
+import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
+import { useCreateActivity } from '../../../hooks/useCreateActivity';
+import { useDeleteActivity } from '../../../hooks/useDeleteActivity';
 import { useGetTodoList } from '../../../hooks/useGetListTodo';
 import Button from '../../atoms/Button/Button';
 import CardTodo from '../../molecules/CardTodo/CardTodo';
 import ModalConfirm from '../../molecules/Modal/ModalConfirm';
-import { useState } from 'react';
-import { useDeleteActivity } from '../../../hooks/useDeleteActivity';
-import { useCreateActivity } from '../../../hooks/useCreateActivity';
 
 const ActivityList = () => {
-  const [deleteId, setDeleteId] = useState<number | undefined>();
+  const [deleteId, setDeleteId] = useState<any>();
   const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
-  const { data, isLoading, error, refetch, isFetching } = useGetTodoList('get list');
+  const { data, isLoading, refetch, isFetching } = useGetTodoList('get list');
   const { handleDelete } = useDeleteActivity(refetch);
   const { onSubmit, isLoading: loadingCreate } = useCreateActivity(refetch);
 

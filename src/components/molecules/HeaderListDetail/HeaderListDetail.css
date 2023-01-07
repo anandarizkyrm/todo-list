@@ -1,42 +1,41 @@
 @import url('../../../constant.css');
 
-.header-content{
-    display: flex;
-    gap: 16px;
-    align-items: center;    
+.header-content {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
-.title{
-    font-size: '46px';
-    font-weight: 500;
-    font-size: 36px;
-    color : black;
-    font-weight: 700;
+.title {
+  font-size: '46px';
+  font-weight: 500;
+  font-size: 36px;
+  color: black;
+  font-weight: 700;
 }
-.input-title{
-    font-size: '46px';
-    font-weight: 500;
-    height: 100%;
-}
-
-.input-title
-{
-    background-color: transparent;
-    border: 0px;
-    font-size: 36px;
-    color : black;
-    font-weight: 700;
-    border-bottom: 1px solid;
-    max-width: 583px;
+.input-title {
+  font-size: '46px';
+  font-weight: 500;
+  height: 100%;
 }
 
-input:focus{
-    outline: none;
+.input-title {
+  background-color: transparent;
+  border: 0px;
+  font-size: 36px;
+  color: black;
+  font-weight: 700;
+  border-bottom: 1px solid;
+  max-width: 583px;
 }
 
-.header-wrapper{
-    display: flex;
-    margin-top: '2px';
-    justify-content: space-between;
-    align-items: center;
+input:focus {
+  outline: none;
+}
+
+.header-wrapper {
+  display: flex;
+  margin-top: '2px';
+  justify-content: space-between;
+  align-items: center;
 }

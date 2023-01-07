@@ -1,20 +1,19 @@
 @import '../../../constant.css';
 
-
-.activity-list-container{
-    padding: 2rem 14rem 2rem 14rem;
-    box-sizing: border-box;
-    width: 100%;
+.activity-list-container {
+  padding: 2rem 2rem 2rem 2rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.header{
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.activity-list {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.activity-list{
-    display: grid;
-    grid-template-columns: auto auto auto ;
-    margin-top: 32px;
+    flex-wrap: wrap;
+  margin-top: 32px;
 }

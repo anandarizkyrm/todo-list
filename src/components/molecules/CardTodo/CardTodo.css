@@ -1,34 +1,37 @@
 @import '../../../constant.css';
 
-
-.card-todo{
-    
-    height: 234px;
-    margin: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 22px 27px;
-    margin-bottom: 26px;
-    position: relative;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+.card-todo {
+  height: 234px;
+  width: 201px;
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 22px 27px;
+  margin-bottom: 26px;
+  position: relative;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
 }
 
-.card-todo:hover{
-    cursor: pointer;
+.card-todo:hover {
+  cursor: pointer;
 }
 
 
-
-
-.card-bottom{
-    display: flex;
-    justify-content: space-between;
+.card-todo h3:hover {
+  cursor: pointer;
+  color :aqua;
 }
 
-.card-todo-date{
-    color: var(--bs-gray-500);
-    font-weight: 600;
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-todo-date {
+  color: var(--bs-gray-500);
+  font-weight: 600;
 }
