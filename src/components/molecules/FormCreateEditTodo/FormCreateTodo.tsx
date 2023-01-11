@@ -1,8 +1,11 @@
+import './FormCreateEditTodo.css';
+
+import { useState } from 'react';
+
 import { useCreateTodo } from '../../../hooks/useCreateActivity';
 import Button from '../../atoms/Button/Button';
-import DropdownInput from '../../atoms/DropdownInput/DropdownInput';
 import Input from '../../atoms/Input/Input';
-import './FormCreateEditTodo.css';
+import PrioritySelect from '../../atoms/PrioritySelect/PrioritySelect';
 
 type Props = {
   setIsOpen: any;
@@ -11,7 +14,8 @@ type Props = {
 
 const FormCreateTodo = (props: Props) => {
   const { setIsOpen, id } = props;
-  const { setTitle, title, setPriority, onSubmit } = useCreateTodo();
+  const { setTitle, title, setPriority, onSubmit, priority } = useCreateTodo();
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
   const handleOnSubmit = (e: any) => {
     onSubmit(id, e);
@@ -19,7 +23,7 @@ const FormCreateTodo = (props: Props) => {
   };
   return (
     <form onSubmit={(e: any) => handleOnSubmit(e)} className="form-container">
-      <div className="">
+      <div style={{ marginTop: '-20px' }}>
         <Input
           type="text"
           className="input-add-todo"
@@ -28,18 +32,19 @@ const FormCreateTodo = (props: Props) => {
           placeholder="Tambahkan Nama Activity"
           onChange={(e: any) => setTitle(e.target.value)}
         />
-        <DropdownInput
-          list={['Very-High', 'High', 'Normal', 'Low', 'Very-Low']}
-          label="Priority"
-          onChange={(e: any) => setPriority(e.target.value)}
-        />
+        <div style={{ marginTop: '28px' }}>
+          <label>Priority</label>
+          <PrioritySelect
+            isOpen={isOpenDropdown}
+            setIsOpen={setIsOpenDropdown}
+            active={priority}
+            setIsActive={setPriority}
+          />
+        </div>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <div onClick={() => setIsOpen(false)}>
-          <Button text="Keluar" color="red" />
-        </div>
-        <Button type="submit" text="Simpan" color="cyan" />
+      <div className="bottom-modal">
+        <Button type="submit" text="Simpan" color="#16ABF8" />
       </div>
     </form>
   );

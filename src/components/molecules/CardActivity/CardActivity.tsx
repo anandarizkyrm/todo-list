@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
-import { FaPencilAlt, FaTrash } from 'react-icons/fa';
-import { useHandleUpdateStatusTodo } from '../../../hooks/useHandleUpdate';
 import './CardActivity.css';
+
+import { useEffect, useState } from 'react';
+import { FaPencilAlt } from 'react-icons/fa';
+
+import deleteIcon from '../../../assets/icon-delete.svg';
+import { useHandleUpdateStatusTodo } from '../../../hooks/useHandleUpdate';
+
 type Props = {
   setIsEdit: any;
   setDelete: any;
   data: any;
+  setDeleteTitle: any;
   setIsOpenModalEdit: any;
   setEditValue: any;
   setSelectedIdToDelete: any;
@@ -16,6 +21,7 @@ const CardActivity = ({
   setDelete,
   data,
   setEditValue,
+  setDeleteTitle,
   setSelectedIdToDelete,
 }: Props) => {
   const [checkbox, setCheckBox] = useState<boolean>();
@@ -46,8 +52,23 @@ const CardActivity = ({
   const handleDelete = () => {
     setSelectedIdToDelete(data?.id);
     setDelete(true);
+    setDeleteTitle(data?.title);
   };
 
+  const handlePriorityColor = (priority: string) => {
+    switch (priority) {
+      case 'very-high':
+        return '#ED4C5C';
+      case 'high':
+        return '#F8A541';
+      case 'normal':
+        return '#00A790';
+      case 'low':
+        return '#428BC1';
+      case 'very-low':
+        return '#8942C1';
+    }
+  };
   return (
     <div className="card-activity-container">
       <div className="card-activity-content">
@@ -56,9 +77,13 @@ const CardActivity = ({
           checked={checkbox ? checkbox : false}
           type={'checkbox'}
         ></input>
-        {data?.priority}
+
+        <div
+          style={{ backgroundColor: handlePriorityColor(data?.priority) }}
+          className={`priority-icon`}
+        ></div>
         {!checkbox ? (
-          <h2>{data.title}</h2>
+          <h2 className="title-activity">{data.title}</h2>
         ) : (
           <h2 className="is-checked-font">{data.title}</h2>
         )}
@@ -67,7 +92,7 @@ const CardActivity = ({
         </div>
       </div>
       <div onClick={handleDelete}>
-        <FaTrash style={{ color: 'red' }} />
+        <img src={deleteIcon}></img>
       </div>
     </div>
   );

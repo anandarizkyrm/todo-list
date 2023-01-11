@@ -29,4 +29,21 @@ input:focus {
 
 .is-checked-font {
   text-decoration: line-through;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  color: #111111;
+}
+
+.title-activity {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  color: #111111;
 }

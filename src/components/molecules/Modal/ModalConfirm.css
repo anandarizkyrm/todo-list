@@ -15,14 +15,26 @@
 
 .popup-modal {
   background-color: var(--bs-gray-100);
-  width: 32rem;
-  height: 18rem;
+  max-width: 490px;
+  max-height: 355px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-
   justify-content: space-around;
   align-items: center;
+}
+
+.popup-modal p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+
+  text-align: center;
+
+  color: #111111;
 }
 
 .modal-confirm-button {

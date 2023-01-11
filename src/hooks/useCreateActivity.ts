@@ -24,7 +24,7 @@ function useCreateActivity(refetch?: any) {
   };
 }
 
-function useCreateTodo(refetch?: any) {
+function useCreateTodo() {
   const [title, setTitle] = useState();
   const [priority, setPriority] = useState();
   const { mutate, isLoading } = useMutation(activityServices.createTodo, {
@@ -40,6 +40,7 @@ function useCreateTodo(refetch?: any) {
     e.preventDefault();
     if (title && priority) {
       mutate({ id, title, priority });
+      console.log(priority);
     } else {
       toast.error('Isi Semua Data');
     }

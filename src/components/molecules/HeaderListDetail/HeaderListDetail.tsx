@@ -1,17 +1,34 @@
+import './HeaderListDetail.css';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { FaChevronCircleLeft, FaPencilAlt, FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
+import Backicon from '../../../assets/icon-back.svg';
+import Editicon from '../../../assets/icon-edit-h.svg';
+import Plusicon from '../../../assets/icon-plus.svg';
 import { useUpdateTitleDetail } from '../../../hooks/useHandleUpdate';
 import Button from '../../atoms/Button/Button';
+import DropdownSort from '../../atoms/DropdownSort/DropdownSort';
 import PopupSubmitForm from '../../organisms/PopupSubmitForm/PopupSubmitForm';
-import './HeaderListDetail.css';
+
 type Props = {
   id: number;
   title: string;
+  activeDropdown: number;
+  setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
+  isOpenDropdown: boolean;
+  setIsOpenDropdown: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const HeaderListDetail = ({ id, title: detailTitle }: Props) => {
+const HeaderListDetail = ({
+  id,
+  title: detailTitle,
+  activeDropdown,
+  setActiveDropdown,
+  isOpenDropdown,
+  setIsOpenDropdown,
+}: Props) => {
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [title, setTitle] = useState(detailTitle);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
@@ -41,8 +58,8 @@ const HeaderListDetail = ({ id, title: detailTitle }: Props) => {
       <Toaster />
       <div className="header-wrapper">
         <div className="header-content">
-          <Link to="/">
-            <FaChevronCircleLeft style={{ fontSize: '32px', marginRight: '12px' }} />
+          <Link data-cy="todo-back-button" to="/">
+            <img src={Backicon}></img>
           </Link>
           {isEditTitle ? (
             <input
@@ -55,14 +72,24 @@ const HeaderListDetail = ({ id, title: detailTitle }: Props) => {
               value={title}
             ></input>
           ) : (
-            <h1 className="title">{title}</h1>
+            <h1 data-cy="todo-title" style={{ margin: 0, padding: 0 }} className="title">
+              {title}
+            </h1>
           )}
-          <div onClick={handleEdit}>
-            <FaPencilAlt style={{ color: 'gray', fontSize: '16px' }} />
+          <div data-cy="todo-title-edit-button" onClick={handleEdit}>
+            <img src={Editicon}></img>
           </div>
         </div>
-        <div onClick={() => setIsOpenModalCreate(true)}>
-          <Button icon={<FaPlus />} text={'Tambah'} color="#0dcaf0" />
+        <div style={{ display: 'flex', gap: '24px' }}>
+          <DropdownSort
+            active={activeDropdown}
+            setIsActive={setActiveDropdown}
+            isOpen={isOpenDropdown}
+            setIsOpen={setIsOpenDropdown}
+          />
+          <div onClick={() => setIsOpenModalCreate(true)}>
+            <Button icon={<img src={Plusicon}></img>} text={'Tambah'} color="#16ABF8" />
+          </div>
         </div>
       </div>
 

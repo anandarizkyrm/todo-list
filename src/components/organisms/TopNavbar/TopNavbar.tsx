@@ -9,8 +9,10 @@ const TopNavbar = (props: TopNavbarProps) => {
   const { title } = props;
 
   return (
-    <div className="topnavbar">
-      <h2 className="topnavbar-title">{title}</h2>
+    <div data-cy="header-background" className="topnavbar">
+      <h2 data-cy="header-title" className="topnavbar-title">
+        {title}
+      </h2>
     </div>
   );
 };

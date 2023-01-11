@@ -1,18 +1,14 @@
 import React from 'react';
 import './Input.css';
-type Props = {
-  type: string;
-  label: string;
-  placeholder: string;
-};
 
 const Input = ({ type, label, placeholder, ...rest }: any) => {
   return (
     <div>
-      <label className="input-label" htmlFor="input">
+      <label data-cy="modal-add-name-title" className="input-label" htmlFor="input">
         {label}
       </label>
       <input
+        data-cy="modal-add-name-input"
         {...rest}
         // className="input"
         name="input"

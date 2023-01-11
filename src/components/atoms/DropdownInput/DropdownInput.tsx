@@ -1,20 +1,25 @@
+import './DropdownInput.css';
+
 import React from 'react';
 
-type Props = {
-  label: string;
-  list: any[];
-  defaultVal?: string;
-};
+import red from './red.svg';
+
+// type Props = {
+//   label: string;
+//   list: any[];
+//   defaultVal?: string;
+// };
 
 const DropdownInput = ({ label, list, defaultVal, ...rest }: any) => {
   return (
-    <div>
+    <div className="dropdown-container">
       <label htmlFor="select">{label}</label>
-      <select {...rest} name="select">
-        <option>Pilih Prioritas</option>
+
+      <select {...rest} name="select" className="priority-select">
+        <option>Pilih priority</option>
         {list?.map((item: any) => (
-          <option selected={item?.toLowerCase() == defaultVal?.toLowerCase()}>
-            {item}
+          <option key={item} selected={item?.toLowerCase() == defaultVal?.toLowerCase()}>
+            <img src={red}></img> {item}
           </option>
         ))}
       </select>

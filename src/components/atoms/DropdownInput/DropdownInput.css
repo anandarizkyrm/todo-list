@@ -1,0 +1,30 @@
+.priority-select {
+  padding: 8px;
+  border: none;
+  margin-top: 4px;
+  border-radius: 6px;
+}
+
+.priority-select:focus {
+  outline: 1px solid rgb(21, 111, 196);
+}
+
+.dropdown-container {
+  display: flex;
+  margin-top: 18px;
+  flex-direction: column;
+}
+
+.item-color {
+  width: 14px;
+  height: 14px;
+  background: #000;
+}
+
+.Very-High {
+  background: #ed4c5c;
+}
+
+.High {
+  background: #ed4c5c;
+}

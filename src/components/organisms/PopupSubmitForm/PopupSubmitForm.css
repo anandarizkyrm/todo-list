@@ -17,11 +17,31 @@
   background-color: var(--bs-gray-100);
   border-radius: 12px;
   display: flex;
-  width: auto;
-  height: auto;
-  padding: 32px;
-  background: #000;
+  width: 830px;
+  height: 433px;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.header-modal-add-edit {
+  display: flex;
+  padding: 22px;
+  margin-top: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  justify-content: space-between;
+}
+
+.header-modal-add-edit h3 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+
+  font-size: 18px;
+  /* identical to box height */
+
+  color: #111111;
 }

@@ -10,7 +10,7 @@ const Layout = (props: Props) => {
   const { children } = props;
   return (
     <>
-      <TopNavbar title="To Do List App" />
+      <TopNavbar title="TO DO LIST APP" />
       <div className="layout-container">{children}</div>
     </>
   );
