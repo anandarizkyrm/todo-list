@@ -1,9 +1,9 @@
 import './CardActivity.css';
 
 import { useEffect, useState } from 'react';
-import { FaPencilAlt } from 'react-icons/fa';
 
 import deleteIcon from '../../../assets/icon-delete.svg';
+import iconPencil from '../../../assets/icon-edit-p.svg';
 import { useHandleUpdateStatusTodo } from '../../../hooks/useHandleUpdate';
 
 type Props = {
@@ -88,7 +88,7 @@ const CardActivity = ({
           <h2 className="is-checked-font">{data.title}</h2>
         )}
         <div onClick={handleEditIcon}>
-          <FaPencilAlt style={{ color: 'gray', fontSize: '12px' }} />
+          <img src={iconPencil}></img>
         </div>
       </div>
       <div onClick={handleDelete}>
