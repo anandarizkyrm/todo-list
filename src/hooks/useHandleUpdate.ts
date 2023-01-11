@@ -23,7 +23,7 @@ function useUpdateTitleDetail() {
   };
 }
 
-function useHandleEditTodo(refetch?: any) {
+function useHandleEditTodo() {
   const [title, setTitle] = useState<any>();
   const [priority, setPriority] = useState<any>();
 
@@ -78,4 +78,4 @@ function useHandleUpdateStatusTodo() {
   };
 }
 
-export { useUpdateTitleDetail, useHandleEditTodo, useHandleUpdateStatusTodo };
+export { useHandleEditTodo, useHandleUpdateStatusTodo, useUpdateTitleDetail };
