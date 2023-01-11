@@ -60,7 +60,7 @@ const DropdownSort = ({
         onClick={() => setIsOpen(!isOpen)}
         className="btn-sort"
       >
-        <img src={iconSort}></img>
+        <img data-cy="todo-sort-button" src={iconSort}></img>
       </button>
       <div
         data-cy="sort-parent"
