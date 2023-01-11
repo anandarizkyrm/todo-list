@@ -29,7 +29,11 @@ const ModalConfirm = (props: Props) => {
 
   if (!isOpen) return null;
   return (
-    <div data-cy="modal-delete" className={`modal-container`}>
+    <div
+      onClick={() => setOpenModalDelete(false)}
+      data-cy="modal-delete"
+      className={`modal-container`}
+    >
       <div className="popup-modal">
         <div data-cy="todo-modal-delete" style={{ textAlign: 'center' }}>
           <img data-cy="modal-delete-icon" src={iconAlert}></img>
