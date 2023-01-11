@@ -55,7 +55,7 @@ const HeaderListDetail = ({
 
   return (
     <div>
-      <Toaster />
+      <Toaster data-cy="modal-information" />
       <div className="header-wrapper">
         <div className="header-content">
           <Link data-cy="todo-back-button" to="/">
@@ -72,7 +72,12 @@ const HeaderListDetail = ({
               value={title}
             ></input>
           ) : (
-            <h1 data-cy="todo-title" style={{ margin: 0, padding: 0 }} className="title">
+            <h1
+              data-cy="todo-title"
+              onClick={handleEdit}
+              style={{ margin: 0, padding: 0 }}
+              className="title"
+            >
               {title}
             </h1>
           )}
@@ -88,7 +93,12 @@ const HeaderListDetail = ({
             setIsOpen={setIsOpenDropdown}
           />
           <div onClick={() => setIsOpenModalCreate(true)}>
-            <Button icon={<img src={Plusicon}></img>} text={'Tambah'} color="#16ABF8" />
+            <Button
+              data-cy="todo-add-button"
+              icon={<img src={Plusicon}></img>}
+              text={'Tambah'}
+              color="#16ABF8"
+            />
           </div>
         </div>
       </div>

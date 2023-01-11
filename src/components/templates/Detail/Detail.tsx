@@ -84,7 +84,9 @@ const Detail = ({ id }: { id: number }) => {
           marginTop: '12px',
         }}
       >
-        {list?.length === 0 ? <img src={emptyImage}></img> : null}
+        {list?.length === 0 ? (
+          <img data-cy="todo-empty-state" src={emptyImage}></img>
+        ) : null}
         <div style={{ width: '100%' }}>
           {list?.map((item: any) => (
             <CardActivity

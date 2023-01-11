@@ -55,7 +55,7 @@ const ActivityList = () => {
       ) : (
         'Loading . . .'
       )}
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster data-cy="modal-information" position="top-right" reverseOrder={false} />
       {deleteId ? (
         <ModalConfirm
           id={deleteId}

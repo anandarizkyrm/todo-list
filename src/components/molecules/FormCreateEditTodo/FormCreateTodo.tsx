@@ -25,6 +25,7 @@ const FormCreateTodo = (props: Props) => {
     <form onSubmit={(e: any) => handleOnSubmit(e)} className="form-container">
       <div style={{ marginTop: '-20px' }}>
         <Input
+          data-cy="modal-add-name-input"
           type="text"
           className="input-add-todo"
           label="Nama List Item"
@@ -44,7 +45,12 @@ const FormCreateTodo = (props: Props) => {
       </div>
 
       <div className="bottom-modal">
-        <Button type="submit" text="Simpan" color="#16ABF8" />
+        <Button
+          data-cy="modal-add-save-button"
+          type="submit"
+          text="Simpan"
+          color="#16ABF8"
+        />
       </div>
     </form>
   );

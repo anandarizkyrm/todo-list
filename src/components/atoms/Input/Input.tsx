@@ -8,7 +8,6 @@ const Input = ({ type, label, placeholder, ...rest }: any) => {
         {label}
       </label>
       <input
-        data-cy="modal-add-name-input"
         {...rest}
         // className="input"
         name="input"
