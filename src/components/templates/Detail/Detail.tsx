@@ -16,9 +16,8 @@ const Detail = ({ id }: { id: number }) => {
   const [activeDropdown, setActiveDropdown] = useState(1);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
-  const { data: detail, refetch } = useGetDetailTodo('detail', id);
+  const { list, refetch, setList, detail } = useGetDetailTodo('detail', id);
   const { handleDelete } = useDeleteTodo(refetch, setIsOpenInfo);
-  const [list, setList] = useState(detail?.todo_items);
   const [deleteTitle, setDeleteTitle] = useState<any>();
   const handleSort = () => {
     let sorted;
@@ -57,21 +56,18 @@ const Detail = ({ id }: { id: number }) => {
         break;
     }
   };
-  useEffect(() => {
-    if (detail) {
-      setList(detail?.todo_items);
-    }
-  }, [detail]);
 
   useEffect(() => {
-    if (detail?.todo_items) {
+    if (list && activeDropdown == 5) {
       handleSort();
     }
-  }, [activeDropdown]);
+  }, [list]);
 
   return (
     <div>
+      <button onClick={handleSort}>dd</button>
       <HeaderListDetail
+        handleSort={handleSort}
         activeDropdown={activeDropdown}
         isOpenDropdown={isOpenDropdown}
         setActiveDropdown={setActiveDropdown}
@@ -94,6 +90,7 @@ const Detail = ({ id }: { id: number }) => {
             <CardActivity
               setDeleteTitle={setDeleteTitle}
               key={item.id}
+              refetch={refetch}
               setIsOpenModalEdit={setIsEdit}
               data={item}
               setDelete={setDelete}

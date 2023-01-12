@@ -55,11 +55,12 @@ function useHandleEditTodo() {
   };
 }
 
-function useHandleUpdateStatusTodo() {
+function useHandleUpdateStatusTodo(refetch: any) {
   const [is_active, setIsActive] = useState<any>();
 
   const { mutate, isLoading } = useMutation(activityServices.updateTodoStatus, {
     onSuccess() {
+      refetch();
       toast.success('Successfully update todo status !');
     },
     onError(error: Error) {

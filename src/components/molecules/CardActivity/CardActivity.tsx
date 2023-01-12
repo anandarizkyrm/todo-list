@@ -13,6 +13,7 @@ type Props = {
   setDeleteTitle: any;
   setIsOpenModalEdit: any;
   setEditValue: any;
+  refetch: any;
   setSelectedIdToDelete: any;
 };
 
@@ -20,12 +21,14 @@ const CardActivity = ({
   setIsEdit,
   setDelete,
   data,
+  refetch,
   setEditValue,
   setDeleteTitle,
   setSelectedIdToDelete,
 }: Props) => {
   const [checkbox, setCheckBox] = useState<boolean>();
-  const { setIsActive, onSubmit: onUpdateTodoStatus } = useHandleUpdateStatusTodo();
+  const { setIsActive, onSubmit: onUpdateTodoStatus } =
+    useHandleUpdateStatusTodo(refetch);
   const handleEditIcon = () => {
     setIsEdit(true);
     setEditValue({
