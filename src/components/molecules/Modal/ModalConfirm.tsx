@@ -1,8 +1,9 @@
 import './ModalConfirm.css';
 
 import React, { useEffect } from 'react';
-import Button from '../../atoms/Button/Button';
+
 import iconAlert from '../../../assets/icon-alert.svg';
+import Button from '../../atoms/Button/Button';
 type Props = {
   id: number;
   isOpen: boolean;
