@@ -47,7 +47,7 @@ const ModalConfirm = (props: Props) => {
           <Button
             data-cy="modal-delete-cancel-button"
             handleClick={() => setOpenModalDelete(false)}
-            text="Cancel"
+            text="Batal"
             color=""
             textColor="#4A4A4A"
           />

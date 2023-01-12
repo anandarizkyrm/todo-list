@@ -8,7 +8,7 @@ function useCreateActivity(setListData: any, listData: any) {
   const { mutate, isLoading } = useMutation(activityServices.createActivity, {
     onSuccess() {
       listData.unshift({
-        title: 'Testing 2',
+        title: 'Testing 1',
         email: 'yoga+1@skyshi.io',
         _comment:
           'email digunakan untuk membedakan list data yang digunakan antar aplikasi',
