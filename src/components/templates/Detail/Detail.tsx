@@ -63,11 +63,15 @@ const Detail = ({ id }: { id: number }) => {
     }
   }, [list]);
 
+  useEffect(() => {
+    if (list) {
+      handleSort();
+    }
+  }, [activeDropdown]);
+
   return (
     <div>
-      <button onClick={handleSort}>dd</button>
       <HeaderListDetail
-        handleSort={handleSort}
         activeDropdown={activeDropdown}
         isOpenDropdown={isOpenDropdown}
         setActiveDropdown={setActiveDropdown}

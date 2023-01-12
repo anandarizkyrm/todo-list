@@ -43,17 +43,15 @@ const DropdownSort = ({
   setIsOpen,
   active,
   setIsActive,
-  handleSort,
 }: {
   isOpen: boolean;
   setIsOpen: any;
   active: number;
-  handleSort: any;
   setIsActive: any;
 }) => {
   const handleClickOptions = (key: number) => {
     setIsActive(key);
-    handleSort();
+    // handleSort();
     setIsOpen(false);
   };
   return (

@@ -19,7 +19,6 @@ type Props = {
   setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
   isOpenDropdown: boolean;
   setIsOpenDropdown: React.Dispatch<React.SetStateAction<boolean>>;
-  handleSort: any;
 };
 
 const HeaderListDetail = ({
@@ -29,7 +28,6 @@ const HeaderListDetail = ({
   setActiveDropdown,
   isOpenDropdown,
   setIsOpenDropdown,
-  handleSort,
 }: Props) => {
   const [isEditTitle, setIsEditTitle] = useState(false);
   const [title, setTitle] = useState(detailTitle);
@@ -89,7 +87,6 @@ const HeaderListDetail = ({
         </div>
         <div style={{ display: 'flex', gap: '24px' }}>
           <DropdownSort
-            handleSort={handleSort}
             active={activeDropdown}
             setIsActive={setActiveDropdown}
             isOpen={isOpenDropdown}
