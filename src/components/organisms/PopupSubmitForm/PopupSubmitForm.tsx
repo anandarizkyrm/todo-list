@@ -1,7 +1,8 @@
+import './PopupSubmitForm.css';
+
+import iconClose from '../.../../../../assets/icon-close.svg';
 import FormCreateTodo from '../../molecules/FormCreateEditTodo/FormCreateTodo';
 import FormEditTodo from '../../molecules/FormCreateEditTodo/FormEditTodo';
-import iconClose from '../.../../../../assets/icon-close.svg';
-import './PopupSubmitForm.css';
 
 type Props = {
   popupType: 'edit' | 'add';
@@ -21,7 +22,12 @@ const PopupSubmitForm = (props: Props) => {
 
   if (!isOpen) return null;
   return (
-    <div data-cy="modal-add" className="modal-container">
+    <>
+      <div
+        onClick={() => setOpenModalDelete(false)}
+        data-cy="modal-add"
+        className="modal-container"
+      ></div>
       <div className="popup-modal">
         <div className="header-modal-add-edit">
           <h3 data-cy="modal-add-title">Tambah List Item</h3>
@@ -39,7 +45,7 @@ const PopupSubmitForm = (props: Props) => {
           <FormEditTodo data={data} id={id.toString()} setIsOpen={setOpenModalDelete} />
         ) : null}
       </div>
-    </div>
+    </>
   );
 };
 

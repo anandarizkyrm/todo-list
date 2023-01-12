@@ -19,6 +19,12 @@
   display: flex;
   width: 830px;
   height: 433px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
   box-sizing: border-box;
   flex-direction: column;
   justify-content: space-around;

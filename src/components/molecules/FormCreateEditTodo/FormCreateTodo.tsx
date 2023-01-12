@@ -46,6 +46,7 @@ const FormCreateTodo = (props: Props) => {
 
       <div className="bottom-modal">
         <Button
+          disabled={!title && !priority}
           data-cy="modal-add-save-button"
           type="submit"
           text="Simpan"
