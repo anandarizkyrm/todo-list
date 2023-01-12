@@ -60,7 +60,7 @@ const DropdownSort = ({
         onClick={() => setIsOpen(!isOpen)}
         className="btn-sort"
       >
-        <img data-cy="todo-sort-button" src={iconSort}></img>
+        <img src={iconSort}></img>
       </button>
       <div
         data-cy="sort-parent"
@@ -71,9 +71,9 @@ const DropdownSort = ({
             onClick={() => handleClickOptions(item.key)}
             className="sort-option"
             key={item.key}
-            data-cy={active === item.key && 'sort-selection-selected'}
+            data-cy="sort-selection"
           >
-            <div data-cy="sort-selection" className="sort-option-content">
+            <div className="sort-option-content">
               <img data-cy="sort-selection-icon" src={item.icon} alt="icons"></img>{' '}
               <p data-cy="sort-selection-title">{item.val}</p>
               {active === item.key ? <img src={iconCheck}></img> : null}

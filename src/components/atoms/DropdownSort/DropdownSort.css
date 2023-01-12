@@ -26,6 +26,7 @@
 
 .hidden-dropdown {
   display: none;
+  user-select: none;
 }
 
 .sort-option-content {
