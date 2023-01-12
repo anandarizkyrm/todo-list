@@ -10,14 +10,17 @@ import { useGetTodoList } from '../../../hooks/useGetListTodo';
 import Button from '../../atoms/Button/Button';
 import CardTodo from '../../molecules/CardTodo/CardTodo';
 import ModalConfirm from '../../molecules/Modal/ModalConfirm';
+import ToastInfo from '../ToastInfo/ToastInfo';
 
 const ActivityList = () => {
   const [deleteId, setDeleteId] = useState<any>();
   const [deleteTitle, setDeleteTitle] = useState<any>();
 
   const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
+  const [toastiInfoOpen, setToastInfoOpen] = useState<boolean>(false);
+
   const { isLoading, isFetching, refetch, data } = useGetTodoList('get list');
-  const { handleDelete } = useDeleteActivity(refetch);
+  const { handleDelete } = useDeleteActivity(refetch, setToastInfoOpen);
   const { onSubmit, isLoading: loadingCreate } = useCreateActivity(refetch);
 
   return (
@@ -65,6 +68,7 @@ const ActivityList = () => {
           setOpenModalDelete={setOpenModalDelete}
         />
       ) : null}
+      <ToastInfo isOpen={toastiInfoOpen} setOpen={setToastInfoOpen} />
     </div>
   );
 };

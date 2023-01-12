@@ -73,6 +73,7 @@ const CardActivity = ({
     <div className="card-activity-container">
       <div className="card-activity-content">
         <input
+          data-cy="todo-item-checkbox"
           onChange={(e) => handleCheckBoxonChange(e)}
           checked={checkbox ? checkbox : false}
           type={'checkbox'}
@@ -83,7 +84,9 @@ const CardActivity = ({
           className={`priority-icon`}
         ></div>
         {!checkbox ? (
-          <h2 className="title-activity">{data.title}</h2>
+          <h2 data-cy="todo-item-title" className="title-activity">
+            {data.title}
+          </h2>
         ) : (
           <h2 className="is-checked-font">{data.title}</h2>
         )}
@@ -91,7 +94,7 @@ const CardActivity = ({
           <img src={iconPencil}></img>
         </div>
       </div>
-      <div onClick={handleDelete}>
+      <div data-cy="todo-item-delete-button" onClick={handleDelete}>
         <img src={deleteIcon}></img>
       </div>
     </div>

@@ -7,6 +7,7 @@ import CardActivity from '../../molecules/CardActivity/CardActivity';
 import HeaderListDetail from '../../molecules/HeaderListDetail/HeaderListDetail';
 import ModalConfirm from '../../molecules/Modal/ModalConfirm';
 import PopupSubmitForm from '../../organisms/PopupSubmitForm/PopupSubmitForm';
+import ToastInfo from '../../organisms/ToastInfo/ToastInfo';
 const Detail = ({ id }: { id: number }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [editValue, setEditValue] = useState();
@@ -14,8 +15,9 @@ const Detail = ({ id }: { id: number }) => {
   const [isDelete, setDelete] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(1);
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
   const { data: detail, refetch } = useGetDetailTodo('detail', id);
-  const { handleDelete } = useDeleteTodo(refetch);
+  const { handleDelete } = useDeleteTodo(refetch, setIsOpenInfo);
   const [list, setList] = useState(detail?.todo_items);
   const [deleteTitle, setDeleteTitle] = useState<any>();
   const handleSort = () => {
@@ -121,6 +123,7 @@ const Detail = ({ id }: { id: number }) => {
           handleDelete={handleDelete}
         />
       ) : null}
+      <ToastInfo isOpen={isOpenInfo} setOpen={setIsOpenInfo} />
     </div>
   );
 };
