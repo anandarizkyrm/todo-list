@@ -86,13 +86,14 @@ const CardActivity = ({
           style={{ backgroundColor: handlePriorityColor(data?.priority) }}
           className={`priority-icon`}
         ></div>
-        {!checkbox ? (
-          <h2 data-cy="todo-item-title" className="title-activity">
-            {data.title}
-          </h2>
-        ) : (
-          <h2 className="is-checked-font">{data.title}</h2>
-        )}
+
+        <h2
+          data-cy="todo-item-title"
+          className={`${!checkbox ? 'title-activity' : 'is-checked-font'}`}
+        >
+          {data.title}
+        </h2>
+
         <div onClick={handleEditIcon}>
           <img src={iconPencil}></img>
         </div>
