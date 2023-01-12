@@ -54,7 +54,7 @@ const ModalConfirm = (props: Props) => {
           <Button
             data-cy="modal-delete-confirm-button"
             handleClick={() => handleDeleteOnClick()}
-            text="Delete"
+            text="Hapus"
             color="#ED4C5C"
           />
         </div>

@@ -3,17 +3,14 @@ import toast from 'react-hot-toast';
 
 import { activityServices } from '../services/activity.service';
 
-export const useDeleteActivity = (setListData: any, listData: any) => {
+export const useDeleteActivity = (refetch: any) => {
   const handleDelete = (deleteId: number) => {
     toast.loading('Please Wait');
     mutate(deleteId);
-    const newList = [...listData]?.filter((item: any) => {
-      return item.id != deleteId;
-    });
-    setListData(newList);
   };
   const { mutate, isLoading } = useMutation(activityServices.deleteActivity, {
     onSuccess() {
+      refetch();
       toast.remove();
       toast.success('Successfully Delete Activity!');
     },

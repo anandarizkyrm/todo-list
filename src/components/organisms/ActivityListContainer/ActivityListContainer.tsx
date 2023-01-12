@@ -16,11 +16,9 @@ const ActivityList = () => {
   const [deleteTitle, setDeleteTitle] = useState<any>();
 
   const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
-  const { listData, setListData, isLoading, isFetching } = useGetTodoList('get list');
-  const { handleDelete } = useDeleteActivity(setListData, listData);
-  const { onSubmit, isLoading: loadingCreate } = useCreateActivity(setListData, listData);
-
-  console.log(listData);
+  const { isLoading, isFetching, refetch, data } = useGetTodoList('get list');
+  const { handleDelete } = useDeleteActivity(refetch);
+  const { onSubmit, isLoading: loadingCreate } = useCreateActivity(refetch);
 
   return (
     <div className="activity-list-container">
@@ -37,12 +35,12 @@ const ActivityList = () => {
 
       {!isLoading && !isFetching ? (
         <div className="activity-list">
-          {listData?.length < 1 && (
+          {data?.data?.length < 1 && (
             <div className="empty-item" data-cy="activity-empty-state">
               <img src={emptyItem} alt="empty" onClick={onSubmit} />
             </div>
           )}
-          {listData?.map((item: any) => (
+          {data?.data?.map((item: any) => (
             <CardTodo
               setDeleteId={setDeleteId}
               setDeleteTitle={setDeleteTitle}

@@ -4,18 +4,10 @@ import toast from 'react-hot-toast';
 
 import { activityServices } from '../services/activity.service';
 
-function useCreateActivity(setListData: any, listData: any) {
+function useCreateActivity(refetch: any) {
   const { mutate, isLoading } = useMutation(activityServices.createActivity, {
     onSuccess() {
-      listData.unshift({
-        title: 'Testing 1',
-        email: 'yoga+1@skyshi.io',
-        _comment:
-          'email digunakan untuk membedakan list data yang digunakan antar aplikasi',
-      });
-
-      setListData(listData);
-
+      refetch();
       toast.success('Successfully add Activity!');
     },
     onError(error: Error) {
